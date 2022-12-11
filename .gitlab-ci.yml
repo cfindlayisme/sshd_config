@@ -1,0 +1,12 @@
+before_script:
+  - apk add openssh
+
+stages:          # List of stages for jobs, and their order of execution
+  - test
+
+lint-test-job:   # This job also runs in the test stage.
+  stage: test    # It can run at the same time as unit-test-job (in parallel).
+  script:
+    - echo "Linting config..."
+    - sshd -f sshd_config -t
+    - echo "No lint issues found."
