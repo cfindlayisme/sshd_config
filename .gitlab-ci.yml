@@ -1,3 +1,5 @@
+image: alpine:3.16
+
 before_script:
   - apk add openssh
 
